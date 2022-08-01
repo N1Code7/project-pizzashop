@@ -19,13 +19,18 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-grow: 2;
+  min-width: 100%;
 }
 
 h1,
 h2 {
   font-family: "Lobster", cursive;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -110,6 +115,48 @@ footer .right ul li a {
 }
 footer .right ul li a:visited {
   color: rgb(239, 239, 239);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+form h3 {
+  margin: 20px 0;
+}
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 17px auto;
+}
+form .form-group-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+form .form-group-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form .form-group-row label {
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+  max-width: 190px;
+  padding: 0 1.2rem;
+}
+form .form-group-row input,
+form .form-group-row textarea {
+  min-height: 45px;
+  min-width: 500px;
+  border: none;
+  border-radius: 3px;
+  background: rgb(49, 49, 49);
+  color: rgb(239, 239, 239);
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

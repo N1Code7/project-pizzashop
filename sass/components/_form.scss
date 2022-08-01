@@ -1,0 +1,47 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+
+  h3 {
+    margin: 20px 0;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 17px auto;
+
+    &-errors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      label {
+        display: flex;
+        align-items: center;
+        min-height: 45px;
+        max-width: 190px;
+        padding: 0 1.2rem;
+      }
+
+      input,
+      textarea {
+        min-height: 45px;
+        min-width: 500px;
+        border: none;
+        border-radius: 3px;
+        background: $color1;
+        color: $color3;
+        text-align: center;
+      }
+    }
+  }
+}
