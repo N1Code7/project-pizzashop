@@ -1,19 +1,51 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <a href="#"><i class="fa-solid fa-house-chimney"></i></a>
+                {# <a href="#"><i class="fa-solid fa-pizza-slice"></i></a>
+                <a href="#"><i class="fa-solid fa-users"></i></a>
+                <a href="#"><i class="fa-solid fa-arrow-up-wide-short"></i></a> #}
+            </div>
+            <div class="right">
+                <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                {# <a href="#"><i class="fa-solid fa-right-from-bracket"></i></a> #}
+            </div>
+        </nav>
+    </header>
+
+    <main>
         {% block body %}{% endblock %}
-    </body>
+    </main>
+    
+    <footer>
+        <div class="left">
+            <h2>PizzaShop</h2>
+        </div>
+        <div class="right">
+            <p>Plan du site</p>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Rechercher</a></li>
+                <li><a href="#">Mentions légales</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
 </html>

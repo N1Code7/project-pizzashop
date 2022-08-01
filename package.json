@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gitmoji-cli": "^5.0.3",
     "sass": "^1.54.0"
   }
 }

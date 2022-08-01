@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  padding: 0 1.2rem;
+
+  a {
+    color: $color3;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0.6rem;
+
+    &:visited {
+      color: $color3;
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 10px;
+  }
+}

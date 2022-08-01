@@ -1,0 +1,51 @@
+footer {
+  display: flex;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 230px;
+  margin-top: 30px;
+  padding: 0.6rem 0;
+  background: $color1;
+  color: $color3;
+
+  .left {
+    display: flex;
+    justify-content: end;
+    min-width: 40%;
+    padding-right: 1.2rem;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 60%;
+    padding-left: 1.2rem;
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      min-height: 180px;
+
+      li {
+        list-style: none;
+        padding-left: 0.6rem;
+
+        a {
+          color: $color3;
+          text-decoration: none;
+
+          &:visited {
+            color: $color3;
+          }
+        }
+      }
+    }
+  }
+}
