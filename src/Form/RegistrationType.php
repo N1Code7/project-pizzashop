@@ -30,7 +30,7 @@ class RegistrationType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 "label" => "Votre email :",
-                "attr" => ["placeholder" => "arthur.dupont@mail.com"],
+                "attr" => ["placeholder" => "ex : arthur.dupont@mail.com"],
                 "required" => true
             ])
             ->add('password', PasswordType::class, [
@@ -45,18 +45,18 @@ class RegistrationType extends AbstractType
             ])
             ->add('phone', TelType::class, [
                 "label" => "Votre téléphone :",
-                "attr" => ["placeholder" => "06 12 34 57 79"],
+                "attr" => ["placeholder" => "ex : 06 12 34 57 79"],
                 "required" => true,
             ])
             ->add('city', TextType::class, [
                 "label" => "Votre ville :",
-                "attr" => ["placeholder" => "Paris"],
+                "attr" => ["placeholder" => "ex : Paris"],
                 "required" => true
             ])
             ->add('zipCode', NumberType::class, [
                 "label" => "Votre code postal :",
                 "scale" => 0,
-                "attr" => ["placehodler" => "75000"],
+                "attr" => ["placeholder" => "ex : 75000"],
                 "required" => true
             ])
             ->add('streetAddress', TextType::class, [
