@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../sass/_reset.scss","../sass/_global.scss","../sass/_settings.scss","../sass/layouts/_header.scss","../sass/layouts/_nav.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;;ACHF;AAAA;EAEE,YCKS;;;ACPX;EACE;EACA;EACA;EACA;EACA;EACA,YDHO;ECIP;;;ACPF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE,OFJK;EEKL;EACA;EACA;;AAGF;EACE;EACA","file":"style.css"}

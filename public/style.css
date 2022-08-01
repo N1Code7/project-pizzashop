@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: rgb(242, 239, 230);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+  min-width: 100vw;
+  background: rgb(140, 140, 140);
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  padding: 0 1.2rem;
+}
+nav a {
+  color: rgb(239, 239, 239);
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 0.6rem;
+}
+nav .right {
+  display: flex;
+  gap: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
