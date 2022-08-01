@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PizzaShop - Inscription{% endblock %}
+
+{% block body %}
+    
+    <h1>Inscription</h1>
+
+    <div class="form-container">
+    
+        <form method="post">
+        
+            {{ form_start(form) }}
+
+            <h3>Vos informations personnelles</h3>
+            <div class="block">
+                {{ form_row(form.lastname)}}
+                {{ form_row(form.firstname)}}
+                {{ form_row(form.email)}}
+                {{ form_row(form.password)}}
+                {{ form_row(form.confirmPassword)}}
+                {{ form_row(form.phone)}}
+
+            </div>
+
+            <h3>Votre adresse</h3>
+            <div class="block">
+                {{ form_row(form.city)}}
+                {{ form_row(form.zipCode)}}
+                {{ form_row(form.streetAddress)}}
+                {{ form_row(form.supplement)}}
+            </div>
+
+                <button type="submit" class="btn btn-success">S'inscrire</button>
+
+            {{ form_end(form) }}
+        
+        </form>
+    
+    </div>
+{% endblock %}
+
