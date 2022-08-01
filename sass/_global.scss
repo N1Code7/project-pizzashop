@@ -1,4 +1,15 @@
-html,
-body {
+html {
   background: $color-bg;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+main {
+  flex-grow: 2;
 }

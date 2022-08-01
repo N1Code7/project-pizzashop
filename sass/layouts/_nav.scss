@@ -10,6 +10,10 @@ nav {
     text-decoration: none;
     font-size: 1.5rem;
     padding: 0.6rem;
+
+    &:visited {
+      color: $color3;
+    }
   }
 
   .right {
