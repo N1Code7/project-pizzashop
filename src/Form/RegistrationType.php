@@ -65,7 +65,8 @@ class RegistrationType extends AbstractType
                 "required" => true
             ])
             ->add('supplement', TextareaType::class, [
-                "label" => "Complément d'adresse",
+                "label" => "Complément d'adresse :",
+                "required" => false
             ]);
     }
 
