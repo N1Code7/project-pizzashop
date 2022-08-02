@@ -23,11 +23,21 @@ class AdminPizzaController extends AbstractController
 
             $repository->add($pizza, true);
 
-            return $this->redirectToRoute("app_security_login");
+            return $this->redirectToRoute("app_admin_pizza_list");
         }
 
         return $this->render('admin/pizza/create.html.twig', [
             "form" => $form->createView()
+        ]);
+    }
+
+    #[Route("/liste", name: "app_admin_pizza_list")]
+    public function list(PizzaRepository $repository): Response
+    {
+        $pizzas = $repository->findAll();
+
+        return $this->render("admin/pizza/list.html.twig", [
+            "pizzas" => $pizzas
         ]);
     }
 }

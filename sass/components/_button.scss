@@ -4,7 +4,7 @@
   align-items: center;
   margin-top: 20px;
 
-  &.back-button {
+  &.absolute {
     position: absolute;
     top: 0;
     right: 0;
@@ -33,5 +33,8 @@
 
   &-success {
     background: $color-success;
+  }
+  &-danger {
+    background: $color-danger;
   }
 }

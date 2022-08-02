@@ -3,16 +3,16 @@
 {% block title %}ADMIN - Ajout d'une pizza{% endblock %}
 
 {% block body %}
+    
+    {{ form_start(form) }}
+    <form method="post">
     <h1>Nouvelle Pizza</h1>
-    <div class="btn-container back-button">
+    <div class="btn-container absolute">
         <a class="btn btn-success" href="{{ path("app_security_login")}}">
             <i class="fa-solid fa-circle-chevron-left"></i>
             <span>Retour à la liste</span>
         </a>
     </div>
-    
-    {{ form_start(form) }}
-    <form method="post">
         <div class="form-content">
             <div class="form-group">
                 <div class="form-group-errors">
