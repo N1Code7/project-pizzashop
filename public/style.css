@@ -25,6 +25,9 @@ main {
   flex-grow: 2;
   min-width: 100%;
 }
+main .main-content {
+  position: relative;
+}
 
 h1,
 h2 {
@@ -128,7 +131,7 @@ form h3 {
 form .form-group {
   display: flex;
   flex-direction: column;
-  margin: 17px auto;
+  margin: 25px auto;
 }
 form .form-group-errors {
   display: flex;
@@ -165,6 +168,9 @@ form .form-group-row input::placeholder {
 }
 form .form-group-row textarea {
   resize: vertical;
+  font-family: "Poppins", sans-serif;
+  text-align: justify;
+  padding: 0.6rem;
 }
 
 .btn-container {
@@ -172,6 +178,12 @@ form .form-group-row textarea {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+.btn-container.back-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
 }
 
 .btn {
@@ -182,6 +194,11 @@ form .form-group-row textarea {
   border: none;
   border-radius: 3px;
   font-size: 1.1rem;
+  text-decoration: none;
+  color: rgb(49, 49, 49);
+}
+.btn:visited {
+  color: rgb(49, 49, 49);
 }
 .btn span {
   font-weight: 500;

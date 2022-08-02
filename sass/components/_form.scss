@@ -11,7 +11,7 @@ form {
   .form-group {
     display: flex;
     flex-direction: column;
-    margin: 17px auto;
+    margin: 25px auto;
 
     &-errors {
       display: flex;
@@ -52,6 +52,9 @@ form {
 
       textarea {
         resize: vertical;
+        font-family: $font1;
+        text-align: justify;
+        padding: 0.6rem;
       }
     }
   }

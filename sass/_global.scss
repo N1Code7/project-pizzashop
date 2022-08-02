@@ -18,6 +18,10 @@ main {
   align-items: center;
   flex-grow: 2;
   min-width: 100%;
+
+  .main-content {
+    position: relative;
+  }
 }
 
 h1,
