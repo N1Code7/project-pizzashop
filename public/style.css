@@ -163,6 +163,9 @@ form .form-group-row textarea {
 form .form-group-row input::placeholder {
   font-size: 1.1rem;
 }
+form .form-group-row textarea {
+  resize: vertical;
+}
 
 .btn-container {
   display: flex;

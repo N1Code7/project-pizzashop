@@ -49,6 +49,10 @@ form {
       input::placeholder {
         font-size: 1.1rem;
       }
+
+      textarea {
+        resize: vertical;
+      }
     }
   }
 }

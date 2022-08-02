@@ -12,6 +12,8 @@ class AdminPizzaController extends AbstractController
     #[Route('/nouvelle', name: 'app_admin_pizza_create')]
     public function create(): Response
     {
+
+
         return $this->render('admin_pizza/index.html.twig', [
             'controller_name' => 'AdminPizzaController',
         ]);
