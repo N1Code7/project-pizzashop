@@ -19,17 +19,22 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-grow: 2;
+  min-width: 100%;
 }
 
 h1,
 h2 {
   font-family: "Lobster", cursive;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
 }
 
 h2 {
@@ -43,7 +48,7 @@ header {
   min-height: 70px;
   min-width: 100vw;
   background: rgb(140, 140, 140);
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 nav {
@@ -72,7 +77,7 @@ footer {
   align-items: center;
   min-width: 100vw;
   min-height: 230px;
-  margin-top: 30px;
+  margin-top: 50px;
   padding: 0.6rem 0;
   background: rgb(49, 49, 49);
   color: rgb(239, 239, 239);
@@ -110,6 +115,76 @@ footer .right ul li a {
 }
 footer .right ul li a:visited {
   color: rgb(239, 239, 239);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+form h3 {
+  margin: 20px 0;
+}
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 17px auto;
+}
+form .form-group-errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+form .form-group-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form .form-group-row label {
+  display: flex;
+  align-items: center;
+  min-height: 47px;
+  max-width: 190px;
+  padding: 0 1.2rem;
+}
+form .form-group-row input,
+form .form-group-row textarea {
+  min-height: 47px;
+  min-width: 500px;
+  border: none;
+  border-radius: 3px;
+  background: rgb(49, 49, 49);
+  color: rgb(239, 239, 239);
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+form .form-group-row input::placeholder {
+  font-size: 1.1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.1rem;
+}
+.btn span {
+  font-weight: 500;
+}
+.btn-success {
+  background: rgb(173, 215, 173);
 }
 
 /*# sourceMappingURL=style.css.map */
