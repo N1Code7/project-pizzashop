@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PizzaShop - Accueil{% endblock %}
+
+{% block header_homepage %}
+    <header class="header-homepage">
+        <div class="header-bg"></div>
+        <div class="blur"></div>
+{% endblock %}
+
+{% block header_body %}
+    <div class="header-content">
+        <h1>PizzaShop</h1>
+        <p>Vos meilleurs pizzas à portéé de click !</p>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <h3>Nos Pizzas</h3>
+
+    <div class="cards-container">
+
+    {% for pizza in pizzas %}
+        <div class="card card-pizza">
+            <img src="{{ pizza.imageURL }}" alt="image de la {{ pizza.name }}">
+            <div class="blur"></div>
+            <h2>{{ pizza.name }}</h2>
+            <p>{{ pizza.description }}</p>
+
+            <div class="last-row">
+                <span class="price">
+                    {{ pizza.price }} €
+                </span>
+                <a href="#" class="btn btn-success">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                    <span>
+                        Ajouter au panier
+                    </span>
+                </a>
+            </div>
+
+        </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}
