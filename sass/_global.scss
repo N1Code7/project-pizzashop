@@ -42,3 +42,13 @@ h3 {
   font-size: 1.7rem;
   font-weight: 600;
 }
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  backdrop-filter: blur(3px) brightness(60%);
+}
