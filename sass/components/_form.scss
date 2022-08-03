@@ -11,7 +11,7 @@ form {
   .form-group {
     display: flex;
     flex-direction: column;
-    margin: 17px auto;
+    margin: 25px auto;
 
     &-errors {
       display: flex;
@@ -48,6 +48,13 @@ form {
 
       input::placeholder {
         font-size: 1.1rem;
+      }
+
+      textarea {
+        resize: vertical;
+        font-family: $font1;
+        text-align: justify;
+        padding: 0.6rem;
       }
     }
   }

@@ -29,9 +29,7 @@ class SecurityController extends AbstractController
 
             $repository->add($user, true);
 
-            return $this->redirectToRoute("app_security_login", [
-                "user" => $user
-            ]);
+            return $this->redirectToRoute("app_security_login");
         }
 
         return $this->render("security/registration.html.twig", [

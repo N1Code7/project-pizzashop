@@ -23,7 +23,10 @@ main {
   flex-direction: column;
   align-items: center;
   flex-grow: 2;
-  min-width: 100%;
+  min-width: 100vw;
+}
+main .main-content {
+  position: relative;
 }
 
 h1,
@@ -128,7 +131,7 @@ form h3 {
 form .form-group {
   display: flex;
   flex-direction: column;
-  margin: 17px auto;
+  margin: 25px auto;
 }
 form .form-group-errors {
   display: flex;
@@ -163,12 +166,24 @@ form .form-group-row textarea {
 form .form-group-row input::placeholder {
   font-size: 1.1rem;
 }
+form .form-group-row textarea {
+  resize: vertical;
+  font-family: "Poppins", sans-serif;
+  text-align: justify;
+  padding: 0.6rem;
+}
 
 .btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+.btn-container.absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
 }
 
 .btn {
@@ -179,12 +194,75 @@ form .form-group-row input::placeholder {
   border: none;
   border-radius: 3px;
   font-size: 1.1rem;
+  text-decoration: none;
+  color: rgb(49, 49, 49);
+}
+.btn:visited {
+  color: rgb(49, 49, 49);
 }
 .btn span {
   font-weight: 500;
 }
 .btn-success {
   background: rgb(173, 215, 173);
+}
+.btn-danger {
+  background: rgb(206, 121, 121);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 100%;
+  padding: 1.2rem 1.8rem;
+}
+.card-pizza {
+  min-width: 800px;
+  min-height: 400px;
+}
+.card-pizza img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+.card-pizza .blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  backdrop-filter: blur(3px) brightness(60%);
+}
+.card-pizza h2 {
+  color: rgb(239, 239, 239);
+  margin: 0;
+}
+.card-pizza p {
+  color: rgb(239, 239, 239);
+  max-width: 700px;
+  text-align: justify;
+}
+.card-pizza .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+}
+.card-pizza .buttons a {
+  filter: opacity(70%);
 }
 
 /*# sourceMappingURL=style.css.map */
