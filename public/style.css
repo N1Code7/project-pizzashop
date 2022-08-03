@@ -44,6 +44,12 @@ h2 {
   font-size: 2.2rem;
 }
 
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -198,6 +204,7 @@ form .registration-link:visited {
 
 .btn {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   padding: 1.2rem;
@@ -265,14 +272,23 @@ form .registration-link:visited {
   max-width: 700px;
   text-align: justify;
 }
-.card-pizza .buttons {
+.card .last-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
 }
-.card-pizza .buttons a {
-  filter: opacity(70%);
+.card .last-row .price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  font-family: "Lobster", cursive;
+  font-size: 2.5rem;
+  color: rgb(239, 239, 239);
+}
+.card .last-row a {
+  filter: opacity(75%);
 }
 
 /*# sourceMappingURL=style.css.map */
