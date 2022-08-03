@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
@@ -43,17 +45,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $city = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $city = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $zipCode = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $zipCode = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $streetAddress = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $streetAddress = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $supplement = null;
+    // #[ORM\Column(type: Types::TEXT, nullable: true)]
+    // private ?string $supplement = null;
 
     #[Timestampable(on: "create")]
     #[ORM\Column(nullable: true)]
@@ -65,6 +67,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Basket $basket = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
+    private Collection $addresses;
+
+    public function __construct()
+    {
+        $this->addresses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -172,53 +182,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
+    // public function getCity(): ?string
+    // {
+    //     return $this->city;
+    // }
 
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
+    // public function setCity(string $city): self
+    // {
+    //     $this->city = $city;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getZipCode(): ?string
-    {
-        return $this->zipCode;
-    }
+    // public function getZipCode(): ?string
+    // {
+    //     return $this->zipCode;
+    // }
 
-    public function setZipCode(string $zipCode): self
-    {
-        $this->zipCode = $zipCode;
+    // public function setZipCode(string $zipCode): self
+    // {
+    //     $this->zipCode = $zipCode;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getStreetAddress(): ?string
-    {
-        return $this->streetAddress;
-    }
+    // public function getStreetAddress(): ?string
+    // {
+    //     return $this->streetAddress;
+    // }
 
-    public function setStreetAddress(string $streetAddress): self
-    {
-        $this->streetAddress = $streetAddress;
+    // public function setStreetAddress(string $streetAddress): self
+    // {
+    //     $this->streetAddress = $streetAddress;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getSupplement(): ?string
-    {
-        return $this->supplement;
-    }
+    // public function getSupplement(): ?string
+    // {
+    //     return $this->supplement;
+    // }
 
-    public function setSupplement(?string $supplement): self
-    {
-        $this->supplement = $supplement;
+    // public function setSupplement(?string $supplement): self
+    // {
+    //     $this->supplement = $supplement;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -257,6 +267,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->basket = $basket;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Address>
+     */
+    public function getAddresses(): Collection
+    {
+        return $this->addresses;
+    }
+
+    public function addAddress(Address $address): self
+    {
+        if (!$this->addresses->contains($address)) {
+            $this->addresses->add($address);
+            $address->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAddress(Address $address): self
+    {
+        if ($this->addresses->removeElement($address)) {
+            // set the owning side to null (unless already changed)
+            if ($address->getUser() === $this) {
+                $address->setUser(null);
+            }
+        }
 
         return $this;
     }
