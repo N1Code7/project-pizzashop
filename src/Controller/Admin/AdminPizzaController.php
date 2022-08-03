@@ -62,4 +62,14 @@ class AdminPizzaController extends AbstractController
             "pizza" => $pizza
         ]);
     }
+
+    #[Route("/supprimer/{id}", name: "app_admin_pizza_delete")]
+    public function delete(PizzaRepository $repository, int $id): Response
+    {
+        $pizza = $repository->find($id);
+
+        $repository->remove($pizza, true);
+
+        return $this->redirectToRoute("app_admin_pizza_list");
+    }
 }
