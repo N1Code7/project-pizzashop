@@ -58,4 +58,16 @@ form {
       }
     }
   }
+
+  .registration-link {
+    display: block;
+    margin: 25px auto;
+    text-align: center;
+    color: $color1;
+    font-size: 0.9rem;
+
+    &:visited {
+      color: $color1;
+    }
+  }
 }

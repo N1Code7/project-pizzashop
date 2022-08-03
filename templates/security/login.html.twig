@@ -24,6 +24,7 @@
             </div>
         </div>
 
+
         <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}">
 
@@ -33,6 +34,8 @@
                 <span>Se connecter</span>
             </button>
         </div>
+
+        <a href="{{ path("app_security_registration")}}" class="registration-link">Pas encore inscrit ? c'est par ici 👉</a>
     </div>
 </form>
 {% endblock %}

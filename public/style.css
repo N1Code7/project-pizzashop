@@ -172,6 +172,16 @@ form .form-group-row textarea {
   text-align: justify;
   padding: 0.6rem;
 }
+form .registration-link {
+  display: block;
+  margin: 25px auto;
+  text-align: center;
+  color: rgb(49, 49, 49);
+  font-size: 0.9rem;
+}
+form .registration-link:visited {
+  color: rgb(49, 49, 49);
+}
 
 .btn-container {
   display: flex;
