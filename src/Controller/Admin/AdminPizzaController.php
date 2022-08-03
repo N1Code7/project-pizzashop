@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminPizzaController extends AbstractController
 {
     #[Route('/nouvelle', name: 'app_admin_pizza_create')]
-    public function create(Request $request, PizzaRepository $repository, int $id): Response
+    public function create(Request $request, PizzaRepository $repository): Response
     {
         $form = $this->createForm(PizzaType::class);
 

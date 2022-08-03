@@ -45,18 +45,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $city = null;
-
-    // #[ORM\Column(length: 255)]
-    // private ?string $zipCode = null;
-
-    // #[ORM\Column(length: 255)]
-    // private ?string $streetAddress = null;
-
-    // #[ORM\Column(type: Types::TEXT, nullable: true)]
-    // private ?string $supplement = null;
-
     #[Timestampable(on: "create")]
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
@@ -181,54 +169,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
-    // public function getCity(): ?string
-    // {
-    //     return $this->city;
-    // }
-
-    // public function setCity(string $city): self
-    // {
-    //     $this->city = $city;
-
-    //     return $this;
-    // }
-
-    // public function getZipCode(): ?string
-    // {
-    //     return $this->zipCode;
-    // }
-
-    // public function setZipCode(string $zipCode): self
-    // {
-    //     $this->zipCode = $zipCode;
-
-    //     return $this;
-    // }
-
-    // public function getStreetAddress(): ?string
-    // {
-    //     return $this->streetAddress;
-    // }
-
-    // public function setStreetAddress(string $streetAddress): self
-    // {
-    //     $this->streetAddress = $streetAddress;
-
-    //     return $this;
-    // }
-
-    // public function getSupplement(): ?string
-    // {
-    //     return $this->supplement;
-    // }
-
-    // public function setSupplement(?string $supplement): self
-    // {
-    //     $this->supplement = $supplement;
-
-    //     return $this;
-    // }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {

@@ -20,6 +20,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm(RegistrationType::class);
 
         $form->handleRequest($request);
+        // dd($form->createView());
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();

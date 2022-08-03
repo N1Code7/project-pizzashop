@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -48,25 +49,10 @@ class RegistrationType extends AbstractType
                 "attr" => ["placeholder" => "ex : 06 12 34 57 79"],
                 "required" => true,
             ])
-            ->add('city', TextType::class, [
-                "label" => "Votre ville :",
-                "attr" => ["placeholder" => "ex : Paris"],
-                "required" => true
-            ])
-            ->add('zipCode', NumberType::class, [
-                "label" => "Votre code postal :",
-                "scale" => 0,
-                "attr" => ["placeholder" => "ex : 75000"],
-                "required" => true
-            ])
-            ->add('streetAddress', TextType::class, [
-                "label" => "Votre numéro et votre voie :",
-                "attr" => ["placeholder" => "1, avenue de la République"],
-                "required" => true
-            ])
-            ->add('supplement', TextareaType::class, [
-                "label" => "Complément d'adresse :",
-                "required" => false
+            ->add("addresses", CollectionType::class, [
+                'entry_type' => AddressType::class,
+                'entry_options' => ['label' => false],
+                'allow_add' => true
             ]);
     }
 
@@ -74,6 +60,7 @@ class RegistrationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'cascade_validation' => true
         ]);
     }
 }
