@@ -63,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Basket $basket = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -237,6 +240,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getBasket(): ?Basket
+    {
+        return $this->basket;
+    }
+
+    public function setBasket(Basket $basket): self
+    {
+        // set the owning side of the relation if necessary
+        if ($basket->getUser() !== $this) {
+            $basket->setUser($this);
+        }
+
+        $this->basket = $basket;
 
         return $this;
     }
