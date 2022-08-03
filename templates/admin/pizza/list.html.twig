@@ -23,7 +23,7 @@
         <p>{{ pizza.description }}</p>
 
         <div class="buttons">
-          <a href="#" class="btn btn-success">
+          <a href="{{ path("app_admin_pizza_update", {id: pizza.id}) }}" class="btn btn-success">
             <i class="fa-solid fa-pencil"></i>
             <span>Modifier</span>
           </a>
