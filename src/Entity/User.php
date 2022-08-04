@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Basket;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Gedmo\Mapping\Annotation\Timestampable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Mapping\Annotation\Timestampable;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -53,12 +54,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
-    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
-    private ?Basket $basket = null;
+    // #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    // #[ORM\JoinColumn(nullable: false)]
+    // private ?Basket $basket;
 
     #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Address $address = null;
+
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Basket $basket = null;
 
     public function getId(): ?int
     {
@@ -190,22 +195,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBasket(): ?Basket
-    {
-        return $this->basket;
-    }
 
-    public function setBasket(Basket $basket): self
-    {
-        // set the owning side of the relation if necessary
-        if ($basket->getUser() !== $this) {
-            $basket->setUser($this);
-        }
+    // public function getBasket(): ?Basket
+    // {
+    //     return $this->basket;
+    // }
 
-        $this->basket = $basket;
+    // public function setBasket(Basket $basket): self
+    // {
+    //     // set the owning side of the relation if necessary
+    //     if ($basket->getUser() !== $this) {
+    //         $basket->setUser($this);
+    //     }
 
-        return $this;
-    }
+    //     $this->basket = $basket;
+
+    //     return $this;
+    // }
 
     public function getAddress(): ?Address
     {
@@ -217,5 +223,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->address = $address;
 
         return $this;
+    }
+
+    public function getBasket(): ?Basket
+    {
+        return $this->basket;
+    }
+
+    public function setBasket(?Basket $basket): self
+    {
+        $this->basket = $basket;
+
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->setBasket(new Basket());
     }
 }

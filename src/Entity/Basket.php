@@ -15,7 +15,6 @@ class Basket
     private ?int $id = null;
 
     #[ORM\OneToOne(inversedBy: 'basket', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
     #[ORM\Column(nullable: true)]
@@ -23,6 +22,7 @@ class Basket
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
+
 
     public function getId(): ?int
     {
@@ -34,8 +34,18 @@ class Basket
         return $this->user;
     }
 
-    public function setUser(User $user): self
+    public function setUser(?User $user): self
     {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setBasket(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getBasket() !== $this) {
+            $user->setBasket($this);
+        }
+
         $this->user = $user;
 
         return $this;

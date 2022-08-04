@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Basket;
 use App\Entity\Address;
 use App\Form\RegistrationType;
+use App\Repository\BasketRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,26 +18,23 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class SecurityController extends AbstractController
 {
     #[Route(path: "/inscription", name: "app_security_registration")]
-    public function registration(Request $request, UserRepository $repository, UserPasswordHasherInterface $hasher): Response
+    public function registration(Request $request, UserRepository $repository, BasketRepository $repo2, UserPasswordHasherInterface $hasher): Response
     {
-        // $user = new User();
-        // $address = new Address();
-
-        // $user->addAddress($address);
-
-
         $form = $this->createForm(RegistrationType::class);
 
-        // dd($request);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $user = $form->getData();
+            $basket = $user->getBasket();
+            $basket->setUser($user);
 
             $hashedPassword = $hasher->hashPassword($user, $user->getPassword());
             $user->setPassword($hashedPassword);
 
             $repository->add($user, true);
+            $repo2->add($basket, true);
 
             return $this->redirectToRoute("app_security_login");
         }
