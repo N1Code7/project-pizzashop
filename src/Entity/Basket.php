@@ -25,7 +25,7 @@ class Basket
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
-    #[ORM\OneToMany(mappedBy: 'basket', targetEntity: Article::class)]
+    #[ORM\OneToMany(mappedBy: 'basket', targetEntity: Article::class, cascade: ["persist", "remove"])]
     private Collection $articles;
 
     public function __construct()
@@ -113,5 +113,16 @@ class Basket
         }
 
         return $this;
+    }
+
+    public function getTotal(): float
+    {
+        $total = 0.0;
+
+        foreach ($this->articles as $article) {
+            $total += $article->getTotal();
+        }
+
+        return $total;
     }
 }

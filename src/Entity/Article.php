@@ -93,4 +93,9 @@ class Article
 
         return $this;
     }
+
+    public function getTotal(): float
+    {
+        return round($this->quantity * $this->getPizza()->getPrice(), 2);
+    }
 }

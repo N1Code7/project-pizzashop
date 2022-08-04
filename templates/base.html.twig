@@ -19,14 +19,15 @@
     {% endblock %}
         <nav>
             <div class="left">
-                <a href="#"><i class="fa-solid fa-house-chimney"></i></a>
-                
-                    {# <a href="#"><i class="fa-solid fa-pizza-slice"></i></a>
+                <a href="{{ path("app_front_home_index") }}"><i class="fa-solid fa-house-chimney"></i></a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a href="#"><i class="fa-solid fa-pizza-slice"></i></a>
                     <a href="#"><i class="fa-solid fa-users"></i></a>
-                    <a href="#"><i class="fa-solid fa-arrow-up-wide-short"></i></a>                #}
+                    <a href="#"><i class="fa-solid fa-arrow-up-wide-short"></i></a>               
+                {% endif %}
             </div>
             <div class="right">
-                <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                <a href="{{ path("app_front_basket_display") }}"><i class="fa-solid fa-basket-shopping"></i></a>
                 <a href="#"><i class="fa-solid fa-user"></i></a>
                 {% if app.user %}
                     <a href="{{ path("app_security_logout") }}"><i class="fa-solid fa-right-from-bracket"></i></a>

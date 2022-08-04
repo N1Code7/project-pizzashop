@@ -60,6 +60,22 @@ h3 {
   backdrop-filter: blur(3px) brightness(60%);
 }
 
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  margin-top: 20px;
+}
+.total-container .total-price {
+  font-family: "Lobster", cursive;
+  font-size: 2.5rem;
+  color: rgb(49, 49, 49);
+}
+.total-container .btn-container {
+  margin-top: 0;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -287,35 +303,29 @@ form .registration-link:visited {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  min-height: 100%;
   padding: 1.2rem 1.8rem;
-}
-.card-pizza {
   min-width: 800px;
   min-height: 400px;
 }
-.card-pizza img {
+.card a {
+  filter: opacity(75%);
+}
+.card img {
   position: absolute;
   top: 0;
   left: 0;
   z-index: -2;
 }
-.card-pizza h2 {
+.card h2 {
   color: rgb(239, 239, 239);
   margin: 0;
 }
-.card-pizza p {
+.card p {
   color: rgb(239, 239, 239);
   max-width: 700px;
   text-align: justify;
 }
-.card .last-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 100%;
-}
-.card .last-row .price {
+.card .price {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,8 +334,45 @@ form .registration-link:visited {
   font-size: 2.5rem;
   color: rgb(239, 239, 239);
 }
-.card .last-row a {
-  filter: opacity(75%);
+.card-pizza .last-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+}
+.card-basket h2 {
+  margin: 8px 0 20px;
+}
+.card-basket .btn-container {
+  margin: 0;
+}
+.card-basket .set_quantity {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+.card-basket .set_quantity span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+  font-family: "Lobster", cursive;
+  font-size: 2rem;
+  color: rgb(239, 239, 239);
+}
+.card-basket .last-row {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: relative;
+  min-width: 100%;
+  margin-top: 15px;
+}
+.card-basket .last-row .price {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=style.css.map */
