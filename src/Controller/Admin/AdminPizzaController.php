@@ -4,11 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Form\PizzaType;
 use App\Repository\PizzaRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[IsGranted("ROLE_ADMIN")]
 #[Route("/admin/pizza")]
 class AdminPizzaController extends AbstractController
 {
