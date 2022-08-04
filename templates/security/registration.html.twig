@@ -2,6 +2,12 @@
 
 {% block title %}PizzaShop - Inscription{% endblock %}
 
+{% block debug %}
+{# <pre>
+    {{ dump(form) }}
+</pre> #}
+{% endblock %}
+
 {% block body %}
     
     <h1>Inscription</h1>
@@ -68,42 +74,45 @@
                 </div>
             </div>
 
-            <h3>Votre adresse</h3>
+            <h3>Votre adresse</h3>                
+            
             <div class="form-content">
                 <div class="form-group">
+                        
                     <div class="form-group-errors">
-                            {{ form_errors(form.city)}}
+                            {{ form_errors(form.address.city)}}
                     </div>
                     <div class="form-group-row">
-                            {{ form_label(form.city)}}
-                            {{ form_widget(form.city)}}
+                            {{ form_label(form.address.city)}}
+                            {{ form_widget(form.address.city)}}
+                    </div>
+                
+                </div>
+                <div class="form-group">
+                    <div class="form-group-errors">
+                            {{ form_errors(form.address.zipCode)}}
+                    </div>
+                    <div class="form-group-row">
+                            {{ form_label(form.address.zipCode)}}
+                            {{ form_widget(form.address.zipCode)}}
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-errors">
-                            {{ form_errors(form.zipCode)}}
+                            {{ form_errors(form.address.street)}}
                     </div>
                     <div class="form-group-row">
-                            {{ form_label(form.zipCode)}}
-                            {{ form_widget(form.zipCode)}}
+                            {{ form_label(form.address.street)}}
+                            {{ form_widget(form.address.street)}}
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-errors">
-                            {{ form_errors(form.streetAddress)}}
+                            {{ form_errors(form.address.supplement)}}
                     </div>
                     <div class="form-group-row">
-                            {{ form_label(form.streetAddress)}}
-                            {{ form_widget(form.streetAddress)}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group-errors">
-                            {{ form_errors(form.supplement)}}
-                    </div>
-                    <div class="form-group-row">
-                            {{ form_label(form.supplement)}}
-                            {{ form_widget(form.supplement)}}
+                            {{ form_label(form.address.supplement)}}
+                            {{ form_widget(form.address.supplement)}}
                     </div>
                 </div>
             </div>
