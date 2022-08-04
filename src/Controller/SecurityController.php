@@ -25,7 +25,6 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $user = $form->getData();
             $basket = $user->getBasket();
             $basket->setUser($user);
