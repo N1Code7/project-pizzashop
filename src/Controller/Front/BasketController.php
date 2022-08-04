@@ -25,7 +25,8 @@ class BasketController extends AbstractController
     public function addArticle(BasketRepository $repository, Pizza $pizza): Response
     {
         /** @var User $user */
-        $basket = $user->getUser();
+        $user = $this->getUser();
+        $basket = $user->getBasket();
 
         $article = new Article();
         $article->setQuantity(1);
@@ -35,6 +36,22 @@ class BasketController extends AbstractController
         $basket->addArticle($article);
 
         $repository->add($basket, true);
+
+        return $this->redirectToRoute("app_front_basket_display");
+    }
+
+    #[Route("/{id}/supprimer", name: "app_front_basket_deleteArticle")]
+    public function deleteArticle(BasketRepository $basketRepo, ArticleRepository $articleRepo, int $id): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $basket = $user->getBasket();
+
+        $articleToDelete = $articleRepo->find($id);
+
+        $basket->removeArticle($articleToDelete);
+
+        $basketRepo->add($basket, true);
 
         return $this->redirectToRoute("app_front_basket_display");
     }

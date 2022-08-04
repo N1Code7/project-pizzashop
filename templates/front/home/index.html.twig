@@ -31,7 +31,7 @@
                 <span class="price">
                     {{ pizza.price }} €
                 </span>
-                <a href="#" class="btn btn-success">
+                <a href="{{ path("app_front_basket_addArticle", {id: pizza.id}) }}" class="btn btn-success">
                     <i class="fa-solid fa-cart-arrow-down"></i>
                     <span>
                         Ajouter au panier

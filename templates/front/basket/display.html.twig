@@ -1,20 +1,78 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BasketController!{% endblock %}
+{% block title %}PizzaShop - Mon Panier{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<pre>
+    {{ dump(app) }}
+</pre>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Mon Panier</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/nico1/Desktop/project-pizzashop/src/Controller/BasketController.php'|file_link(0) }}">src/Controller/BasketController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/nico1/Desktop/project-pizzashop/templates/basket/index.html.twig'|file_link(0) }}">templates/basket/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% if app.user.basket.articles|length == 0 %}
+        Votre panier est vide !
+        <a href="{{ path("app_front_home_index") }}">Retrouver toutes nots pizzas par ici !</a>
+    {% else %}
+
+    <div class="cards-container">
+    
+        {% for article in app.user.basket.articles %}
+            <div class="card card-basket">
+                <img src="{{ article.pizza.imageURL }}" alt="image de la {{ article.pizza.name }}">
+                <div class="blur"></div>
+                <h2>{{ article.pizza.name }}</h2>
+                <p>{{ article.pizza.description }}</p>
+
+                <div class="set_quantity">
+                    <div class="btn-container">
+                        <a href="{{ path("app_front_basket_decrease", {id: article.id}) }}" class="btn btn-success">
+                            <i class="fa-solid fa-minus"></i>
+                        </a>
+                    </div>
+
+                    <span>
+                        {{ article.quantity }}
+                    </span>
+
+                    <div class="btn-container">
+                        <a href="{{ path("app_front_basket_increase", {id: article.id}) }}" class="btn btn-success">
+                            <i class="fa-solid fa-plus"></i>                    
+                        </a>
+                    </div>
+                </div>
+                <div class="last-row">
+                    <span class="price">
+                        {{ article.quantity * article.pizza.price }} €
+                    </span>
+                    <div class="btn-container">
+                        <a href="{{ path("app_front_basket_deleteArticle", {id: article.id})}}" class="btn btn-danger">
+                            <i class="fa-solid fa-trash"></i>
+                            <span>Supprimer</span>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        {% endfor %}
+
+        <div class="total-container">
+            <span>
+                {# Total {{app.user.basket.getTotal()}} € #}
+            </span>
+            <div class="btn-container">
+                <a href="#" class="btn btn-success">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Commander</span>
+                </a>
+            </div>
+        </div>
+    
+    </div>
+
+    
+
+
+    {% endif %}
+
 {% endblock %}
