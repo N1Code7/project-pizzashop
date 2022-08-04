@@ -56,7 +56,7 @@ class RegistrationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'cascade_validation' => true
+            'cascade_validation' => true // to force the validation of AddressType through the RegistrationType validation
         ]);
     }
 }
