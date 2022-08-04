@@ -58,8 +58,13 @@
   }
 
   &-basket {
+    // margin-top: -10px;
     h2 {
       margin: 8px 0 20px;
+    }
+
+    .btn-container {
+      margin: 0;
     }
 
     .set_quantity {
@@ -92,10 +97,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-    }
-
-    .btn-container {
-      margin: 0;
     }
   }
 }

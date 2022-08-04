@@ -60,6 +60,22 @@ h3 {
   backdrop-filter: blur(3px) brightness(60%);
 }
 
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  margin-top: 20px;
+}
+.total-container .total-price {
+  font-family: "Lobster", cursive;
+  font-size: 2.5rem;
+  color: rgb(49, 49, 49);
+}
+.total-container .btn-container {
+  margin-top: 0;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -327,6 +343,9 @@ form .registration-link:visited {
 .card-basket h2 {
   margin: 8px 0 20px;
 }
+.card-basket .btn-container {
+  margin: 0;
+}
 .card-basket .set_quantity {
   display: flex;
   align-items: center;
@@ -354,9 +373,6 @@ form .registration-link:visited {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.card-basket .btn-container {
-  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

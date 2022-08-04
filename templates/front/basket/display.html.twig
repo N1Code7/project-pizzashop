@@ -55,23 +55,19 @@
             </div>
             
         {% endfor %}
-
-        <div class="total-container">
-            <span>
-                {# Total {{app.user.basket.getTotal()}} € #}
-            </span>
-            <div class="btn-container">
-                <a href="#" class="btn btn-success">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <span>Commander</span>
-                </a>
-            </div>
-        </div>
-    
     </div>
 
-    
-
+    <div class="total-container">
+        <span class="total-price">
+            Total : {{app.user.basket.getTotal()}} €
+        </span>
+        <div class="btn-container">
+            <a href="#" class="btn btn-success">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Commander</span>
+            </a>
+        </div>
+    </div>  
 
     {% endif %}
 
