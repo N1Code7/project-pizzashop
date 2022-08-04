@@ -56,13 +56,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Basket $basket = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
-    private Collection $addresses;
-
-    public function __construct()
-    {
-        $this->addresses = new ArrayCollection();
-    }
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Address $address = null;
 
     public function getId(): ?int
     {
@@ -211,32 +207,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Address>
-     */
-    public function getAddresses(): Collection
+    public function getAddress(): ?Address
     {
-        return $this->addresses;
+        return $this->address;
     }
 
-    public function addAddress(Address $address): self
+    public function setAddress(Address $address): self
     {
-        if (!$this->addresses->contains($address)) {
-            $this->addresses->add($address);
-            $address->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAddress(Address $address): self
-    {
-        if ($this->addresses->removeElement($address)) {
-            // set the owning side to null (unless already changed)
-            if ($address->getUser() === $this) {
-                $address->setUser(null);
-            }
-        }
+        $this->address = $address;
 
         return $this;
     }

@@ -3,9 +3,9 @@
 {% block title %}PizzaShop - Inscription{% endblock %}
 
 {% block debug %}
-<pre>
+{# <pre>
     {{ dump(form) }}
-</pre>
+</pre> #}
 {% endblock %}
 
 {% block body %}
@@ -74,61 +74,17 @@
                 </div>
             </div>
 
-            <h3>Votre adresse</h3>
-
+            <h3>Votre adresse</h3>                
+            
             <div class="form-content">
                 <div class="form-group">
-                    {% for addreses in form.addresses %}
                         
                     <div class="form-group-errors">
-                            {{ form_errors(addresses.city)}}
+                            {{ form_errors(form.address.city)}}
                     </div>
                     <div class="form-group-row">
-                            {{ form_label(addresses.city)}}
-                            {{ form_widget(addresses.city)}}
-                    </div>
-                    {% endfor %}
-                
-                {# </div>
-                <div class="form-group">
-                    <div class="form-group-errors">
-                            {{ form_errors(form.addresses.zipCode)}}
-                    </div>
-                    <div class="form-group-row">
-                            {{ form_label(form.addresses.zipCode)}}
-                            {{ form_widget(form.addresses.zipCode)}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group-errors">
-                            {{ form_errors(form.addresses.street)}}
-                    </div>
-                    <div class="form-group-row">
-                            {{ form_label(form.addresses.street)}}
-                            {{ form_widget(form.addresses.street)}}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group-errors">
-                            {{ form_errors(form.addresses.supplement)}}
-                    </div>
-                    <div class="form-group-row">
-                            {{ form_label(form.addresses.supplement)}}
-                            {{ form_widget(form.addresses.supplement)}}
-                    </div>
-                </div> #}
-            </div>
-        
-            {% for address in form.addresses %}
-            <div class="form-content">
-                <div class="form-group">
-                    
-                    <div class="form-group-errors">
-                            {{ form_errors(address.city)}}
-                    </div>
-                    <div class="form-group-row">
-                            {{ form_label(address.city)}}
-                            {{ form_widget(address.city)}}
+                            {{ form_label(form.address.city)}}
+                            {{ form_widget(form.address.city)}}
                     </div>
                 
                 </div>
@@ -160,7 +116,6 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
 
             <div class="btn-container">
                 <button type="submit" class="btn btn-success">

@@ -49,11 +49,7 @@ class RegistrationType extends AbstractType
                 "attr" => ["placeholder" => "ex : 06 12 34 57 79"],
                 "required" => true,
             ])
-            ->add("addresses", CollectionType::class, [
-                'entry_type' => AddressType::class,
-                'entry_options' => ['label' => false],
-                'allow_add' => true
-            ]);
+            ->add("address", AddressType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
