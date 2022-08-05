@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation\Timestampable;
 
 #[ORM\Entity(repositoryClass: BasketRepository::class)]
 class Basket
@@ -19,9 +20,11 @@ class Basket
     #[ORM\OneToOne(inversedBy: 'basket', cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
+    #[Timestampable(on: "create")]
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[Timestampable(on: "update")]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 

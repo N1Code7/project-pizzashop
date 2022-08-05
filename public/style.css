@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 html {
   background: rgb(242, 239, 230);
 }
@@ -50,6 +54,10 @@ h3 {
   font-weight: 600;
 }
 
+li i {
+  font-size: 0.7rem;
+}
+
 .blur {
   position: absolute;
   top: 0;
@@ -74,6 +82,46 @@ h3 {
 }
 .total-container .btn-container {
   margin-top: 0;
+}
+
+.check-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 4rem 0;
+}
+.check-container .circle {
+  border: none;
+  border-radius: 50%;
+}
+.check-container .circle-bigger {
+  min-height: 400px;
+  min-width: 400px;
+  background: rgb(173, 215, 173);
+  filter: brightness(115%);
+}
+.check-container .circle-smaller {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  min-height: 170px;
+  min-width: 170px;
+  background: rgb(242, 239, 230);
+  filter: none;
+}
+.check-container .circle i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 5rem;
+  font-weight: 600;
+  color: rgb(173, 215, 173);
+  filter: brightness(105%);
 }
 
 header {
@@ -196,6 +244,20 @@ form {
 form h3 {
   margin: 20px 0;
 }
+form .last-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form .price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+}
+form .price-container h2 {
+  margin: 1.2rem 0;
+}
 form .form-group {
   display: flex;
   flex-direction: column;
@@ -240,6 +302,19 @@ form .form-group-row textarea {
   text-align: justify;
   padding: 0.6rem;
 }
+form .form-group-expiration_date label {
+  padding-right: 0;
+  margin-right: 0.6rem;
+}
+form .form-group-expiration_date input {
+  min-width: 50px;
+  max-width: 50px;
+  margin-left: 0.6rem;
+}
+form .form-group-cvc input {
+  min-width: 50px;
+  max-width: 80px;
+}
 form .registration-link {
   display: block;
   margin: 25px auto;
@@ -275,6 +350,7 @@ form .registration-link:visited {
   font-size: 1.1rem;
   text-decoration: none;
   color: rgb(49, 49, 49);
+  box-shadow: 0px 5px 5px 0px hsla(120deg, 11%, 23%, 0.6);
 }
 .btn:visited {
   color: rgb(49, 49, 49);

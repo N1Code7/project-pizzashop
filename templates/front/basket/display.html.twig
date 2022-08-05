@@ -59,7 +59,7 @@
             Total : {{app.user.basket.getTotal()}} €
         </span>
         <div class="btn-container">
-            <a href="#" class="btn btn-success">
+            <a href="{{ path("app_front_order_display", {articles: app.user.basket.articles}) }}" class="btn btn-success">
                 <i class="fa-solid fa-credit-card"></i>
                 <span>Commander</span>
             </a>

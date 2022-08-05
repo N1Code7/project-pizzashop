@@ -45,6 +45,12 @@ h3 {
   font-weight: 600;
 }
 
+li {
+  i {
+    font-size: 0.7rem;
+  }
+}
+
 .blur {
   position: absolute;
   top: 0;
@@ -70,5 +76,49 @@ h3 {
 
   .btn-container {
     margin-top: 0;
+  }
+}
+
+.check-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 4rem 0;
+
+  .circle {
+    border: none;
+    border-radius: 50%;
+
+    &-bigger {
+      min-height: 400px;
+      min-width: 400px;
+      background: $color-success;
+      filter: brightness(115%);
+    }
+
+    &-smaller {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      min-height: 170px;
+      min-width: 170px;
+      background: $color-bg;
+      filter: none;
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      font-size: 5rem;
+      font-weight: 600;
+      color: $color-success;
+      filter: brightness(105%);
+    }
   }
 }
