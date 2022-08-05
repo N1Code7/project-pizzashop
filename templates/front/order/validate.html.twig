@@ -1,9 +1,28 @@
 {% extends "base.html.twig" %}
 
-{% block title %}PizzaShop - Validation de la commande{% endblock %}
+{% block title %}PizzaShop - Confirmation de la commande{% endblock %}
 
 {% block body %}
 
-<h1>Commande validée</h1>
+<h1>Confirmation</h1>
+
+<p style="text-align: center; line-height: 30px; padding-top: 0.6rem;">
+  Votre commande a bien été enregistrée et vous sera délivrée sous peu <i class="fa-solid fa-face-grin-wink"></i><br>
+  Merci et bon apétit !
+</p>
+
+<div class="check-container">
+  <div class="circle circle-bigger">
+    <div class="circle circle-smaller"></div>
+  <i class="fa-solid fa-check"></i>
+  </div>
+</div>
+
+<div class="btn-container">
+  <a href="{{ path("app_front_home_index") }}" class="btn btn-success">
+    <i class="fa-solid fa-circle-arrow-left"></i>
+    <span>Retour à l'accueil</span>
+  </a>
+</div>
 
 {% endblock %}
