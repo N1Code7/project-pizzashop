@@ -17,12 +17,12 @@ class PaymentType extends AbstractType
         $builder
             ->add("address", AddressType::class)
             ->add("cardNumber", TextType::class, [
-                "label" => "Numéro de CB",
+                "label" => "Numéro de CB :",
                 "attr" => ["placeholder" => "XXXX XXXX XXXX XXXX"],
                 "required" => true
             ])
             ->add("expirationMonth", TextType::class, [
-                "label" => "Expiration",
+                "label" => "Expiration :",
                 "attr" => ["placeholder" => "01"],
                 "required" => true
             ])
@@ -32,11 +32,10 @@ class PaymentType extends AbstractType
                 "required" => true
             ])
             ->add("cvc", TextType::class, [
-                "label" => "Cryptogramme",
+                "label" => "Cryptogramme :",
                 "attr" => ["placeholder" => "XXX"],
                 "required" => true
-            ])
-            ->add("submit", SubmitType::class);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

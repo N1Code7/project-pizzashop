@@ -8,6 +8,23 @@ form {
     margin: 20px 0;
   }
 
+  .last-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+
+    h2 {
+      margin: 1.2rem 0;
+    }
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -55,6 +72,29 @@ form {
         font-family: $font1;
         text-align: justify;
         padding: 0.6rem;
+      }
+    }
+
+    &-expiration_date {
+      .form-group-row {
+        // max-width: 220px;
+      }
+
+      label {
+        padding-right: 0;
+        margin-right: 0.6rem;
+      }
+      input {
+        min-width: 50px;
+        max-width: 50px;
+        margin-left: 0.6rem;
+      }
+    }
+
+    &-cvc {
+      input {
+        min-width: 50px;
+        max-width: 80px;
       }
     }
   }

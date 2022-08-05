@@ -3,5 +3,118 @@
 {% block title %}PizzaShop - Commander{% endblock %}
 
 {% block body %}
-    {{ form(form) }}
+
+    <h1>Passer la commande</h1>
+
+    <ul>
+        {% for article in app.user.basket.articles %}
+            <li>{{ article.quantity }} <i class="fa-solid fa-xmark"></i> {{ article.pizza.name }} <i class="fa-solid fa-equals"></i> {{ article.total }} €</li>
+        {% endfor %}
+    </ul>
+
+
+    <form method="post">
+
+        {{ form_start(form) }}
+
+        <h3>Vos coordonnées</h3>
+        <div class="form-content">
+            <div class="form-group">
+                <div class="form-group-errors">
+                    {{ form_errors(form.address.city) }}
+                </div>
+                <div class="form-group-row">
+                    {{ form_label(form.address.city) }}
+                    {{ form_widget(form.address.city) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group-errors">
+                    {{ form_errors(form.address.zipCode) }}
+                </div>
+                <div class="form-group-row">
+                    {{ form_label(form.address.zipCode) }}
+                    {{ form_widget(form.address.zipCode) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group-errors">
+                    {{ form_errors(form.address.street) }}
+                </div>
+                <div class="form-group-row">
+                    {{ form_label(form.address.street) }}
+                    {{ form_widget(form.address.street) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group-errors">
+                    {{ form_errors(form.address.supplement) }}
+                </div>
+                <div class="form-group-row">
+                    {{ form_label(form.address.supplement) }}
+                    {{ form_widget(form.address.supplement) }}
+                </div>
+            </div>
+        </div>
+
+        {# <div class="form-group">
+            <div class="form-group-errors">
+                {{ form_errors(app.user.phone) }}
+            </div>
+            <div class="form-grou-row">
+                {{ form_label(app.user.phone) }}
+                {{ form_widget(app.user.phone) }}
+            </div>
+        </div> #}
+
+        <div class="price-container">
+            <h2>Total : {{ app.user.basket.total}} €</h2>
+        </div>
+
+        <div class="form-content">
+
+            <div class="form-group">
+                <div class="form-group-errors">
+                    {{ form_errors(form.cardNumber)}}
+                </div>
+                <div class="form-group-row">
+                    {{ form_label(form.cardNumber)}}
+                    {{ form_widget(form.cardNumber)}}
+                </div>
+            </div>
+            <div class="last-row">
+                <div class="form-group-expiration_date">
+                    <div class="form-group-errors">
+                        {{ form_errors(form.expirationMonth)}}
+                        {{ form_errors(form.expirationYear)}}
+                    </div>
+                    <div class="form-group-row">
+                        {{ form_label(form.expirationMonth)}}
+                        {{ form_widget(form.expirationMonth)}}
+                        {{ form_widget(form.expirationYear)}}
+                    </div>
+                </div>
+                <div class="form-group-cvc">
+                    <div class="form-group-errors">
+                        {{ form_errors(form.cvc)}}
+                    </div>
+                    <div class="form-group-row">
+                        {{ form_label(form.cvc)}}
+                        {{ form_widget(form.cvc)}}
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-success">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payer</span>
+                </button>
+            </div>
+        
+        </div>
+
+    {{ form_end(form) }}
+    
+    </form>
+
 {% endblock %}
