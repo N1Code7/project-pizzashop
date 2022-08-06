@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+  PizzaShop - Mon profile
+{% endblock %}
+
+{% set firstSeg = app.user.phone|slice(0, 2)  %}
+{% set secondSeg = app.user.phone|slice(2, 2)  %}
+{% set thirdSeg = app.user.phone|slice(4, 2)  %}
+{% set fourthSeg = app.user.phone|slice(6, 2)  %}
+{% set fifthSeg = app.user.phone|slice(8, 2)  %}
+{% set formattedPhone = firstSeg ~ " " ~ secondSeg ~ " " ~ thirdSeg ~ " " ~ fourthSeg ~ " " ~ fifthSeg %}
+
+{% block body %}
+
+  <h1>Mon Profil</h1>
+
+  <div class="cards-container">
+
+    <div class="card card-user">
+      <div class="card-user-bg"></div>
+        <h4>Mes informations personnelles</h4>
+
+        <div class="user-block user-block-infos">
+          <span>Mon NOM :</span>
+          <span>{{ app.user.lastname }}</span>
+          <span>Mon Prénom :</span>
+          <span>{{ app.user.firstname }}</span>
+          <span>Mon téléphone :</span>
+          <span>{{ formattedPhone }}</span>
+          <p>Profil créé le {{ app.user.createdAt|date("d/m/Y \\à H:i:s", "Europe/Paris")}}</p>
+        </div>
+
+        <h4>Mon adresse</h4>
+        <div class="user-block">
+          <span>Ma voie :</span>
+          <span>{{ app.user.address.street }}</span>
+          <span>Complément (optionnel) :</span>
+          <span>{{ app.user.address.supplement }}</span>
+          <span>Mon code postal :</span>
+          <span>{{ app.user.address.zipCode }}</span>
+          <span>Ma ville :</span>
+          <span>{{ app.user.address.city }}</span>    
+        </div>
+        
+
+        <div class="btn-container">
+          <a href="#" class="btn btn-success">
+            <i class="fa-solid fa-pen-fancy"></i>
+            <span>Modifier mes informations</span>
+          </a>
+        </div>
+      </div>
+
+      {# <div class="separator"></div>
+
+      <div class="right">
+        <h4>Mon adresse</h4>
+
+        <table>
+          <tr>
+            <td colspan="3">{{ app.user.address.street }}</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="supplement">{{ app.user.address.supplement }}</td>
+          </tr>
+          <tr>
+            <td class="city">{{ app.user.address.zipCode }}</td>
+            <td colspan="2" class="city">{{ app.user.address.city }}</td>
+          </tr>
+        </table>
+
+        
+        
+        <div class="btn-container">
+          <a href="#" class="btn btn-success">
+            <i class="fa-solid fa-pen-fancy"></i>
+            <span>Modifier mon adresse</span>
+          </a>
+        </div>
+      </div> #}
+
+    {# </div> #}
+  
+  </div>
+
+{% endblock %}

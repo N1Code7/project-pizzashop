@@ -54,10 +54,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
-    // #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?Basket $basket;
-
     #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Address $address = null;
