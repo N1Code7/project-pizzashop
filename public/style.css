@@ -267,7 +267,9 @@ form .form-group-errors {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+  font-size: 0.9rem;
+  color: rgb(140, 9, 9);
 }
 form .form-group-row {
   display: flex;
@@ -285,13 +287,20 @@ form .form-group-row input,
 form .form-group-row textarea {
   min-height: 47px;
   min-width: 500px;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 3px;
   background: rgb(49, 49, 49);
   color: rgb(239, 239, 239);
   text-align: center;
   font-size: 1.1rem;
   letter-spacing: 1px;
+  outline: none;
+}
+form .form-group-row input:focus,
+form .form-group-row textarea:focus {
+  background: rgb(239, 239, 239);
+  color: rgb(49, 49, 49);
+  border: 2px solid rgb(49, 49, 49);
 }
 form .form-group-row input::placeholder {
   font-size: 1.1rem;
@@ -475,11 +484,11 @@ form .registration-link:visited {
   min-width: 100%;
   background: rgb(140, 140, 140);
   filter: opacity(30%);
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: 7px 6px 8px 3px rgba(0, 0, 0, 0.9019607843);
 }
 .card-user .blur {
-  border-radius: 15px;
+  border-radius: 10px;
   backdrop-filter: blur(5px);
 }
 .card .user-block {
@@ -496,7 +505,7 @@ form .registration-link:visited {
 }
 .card .user-block span:nth-of-type(even) {
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 3px;
   background: rgb(49, 49, 49);
   color: rgb(239, 239, 239);
 }

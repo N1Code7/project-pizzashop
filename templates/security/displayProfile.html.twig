@@ -15,6 +15,12 @@
 
   <h1>Mon Profil</h1>
 
+      {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
   <div class="cards-container">
 
     <div class="card card-user">
@@ -43,44 +49,14 @@
           <span>{{ app.user.address.city }}</span>    
         </div>
         
-
         <div class="btn-container">
-          <a href="#" class="btn btn-success">
+          <a href="{{ path("app_security_editProfile", {id: app.user.id}) }}" class="btn btn-success">
             <i class="fa-solid fa-pen-fancy"></i>
             <span>Modifier mes informations</span>
           </a>
+          <a href="{{ path("app_security_editPassword", {id: app.user.id}) }}" class="btn btn-success">Modifier mon mot de passe</a>
         </div>
       </div>
-
-      {# <div class="separator"></div>
-
-      <div class="right">
-        <h4>Mon adresse</h4>
-
-        <table>
-          <tr>
-            <td colspan="3">{{ app.user.address.street }}</td>
-          </tr>
-          <tr>
-            <td colspan="3" class="supplement">{{ app.user.address.supplement }}</td>
-          </tr>
-          <tr>
-            <td class="city">{{ app.user.address.zipCode }}</td>
-            <td colspan="2" class="city">{{ app.user.address.city }}</td>
-          </tr>
-        </table>
-
-        
-        
-        <div class="btn-container">
-          <a href="#" class="btn btn-success">
-            <i class="fa-solid fa-pen-fancy"></i>
-            <span>Modifier mon adresse</span>
-          </a>
-        </div>
-      </div> #}
-
-    {# </div> #}
   
   </div>
 

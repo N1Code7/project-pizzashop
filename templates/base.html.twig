@@ -28,7 +28,7 @@
             </div>
             <div class="right">
                 <a href="{{ path("app_front_basket_display") }}"><i class="fa-solid fa-basket-shopping"></i></a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <a href="{{ path("app_security_displayProfile") }}"><i class="fa-solid fa-user"></i></a>
                 {% if app.user %}
                     <a href="{{ path("app_security_logout") }}"><i class="fa-solid fa-right-from-bracket"></i></a>
                 {% endif %}
