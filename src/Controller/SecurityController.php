@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Entity\Basket;
-use App\Entity\Address;
 use App\Form\EditProfileType;
 use App\Form\EditPasswordType;
 use App\Form\RegistrationType;
