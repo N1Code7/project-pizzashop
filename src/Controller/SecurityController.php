@@ -76,7 +76,7 @@ class SecurityController extends AbstractController
     }
 
     #[IsGranted("ROLE_USER")]
-    #[Route("/mon-profil/editer", name: "app_security_editProfile")]
+    #[Route("/mon-profil/edition", name: "app_security_editProfile")]
     public function editProfile(Request $request, UserRepository $repository): Response
     {
         $user = $this->getUser();
@@ -89,7 +89,7 @@ class SecurityController extends AbstractController
 
             $repository->add($user, true);
 
-            $this->addFlash("success", "Vos informations ont été mises à jour :)");
+            $this->addFlash("success", "Vos informations ont été mises à jour 😉 ");
 
             return $this->redirectToRoute("app_security_displayProfile");
         }
@@ -100,7 +100,7 @@ class SecurityController extends AbstractController
     }
 
     #[IsGranted("ROLE_USER")]
-    #[Route("/mon-profil/changer-pass", name: "app_security_editPassword")]
+    #[Route("/mon-profil/edition-mot-de-passe", name: "app_security_editPassword")]
     public function editPassword(UserRepository $repository, Request $request, UserPasswordHasherInterface $hasher,): Response
     {
         /** @var User */
@@ -123,11 +123,11 @@ class SecurityController extends AbstractController
 
                 $repository->upgradePassword($user, $hashedPassword);
 
-                $this->addFlash("success", "Mots de passe identiques");
+                $this->addFlash("success", "Votre mot de passe a bien été modifié 😉 ");
 
                 return $this->redirectToRoute("app_security_editProfile");
             } else {
-                $this->addFlash("error", "Les MDP ne correspondent pas !");
+                $this->addFlash("error", "🚨 Votre ancien mot de passe ne correspond pas !");
             }
         }
 

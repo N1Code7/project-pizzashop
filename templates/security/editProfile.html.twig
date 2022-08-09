@@ -4,11 +4,13 @@
 
 {% block body %}
 
-  <h1>Mettre à jour mon profile</h1>
+  <h1>Mettre à jour mon profil</h1>
 
-  {% for message in app.flashes("success") %}
-  {{ message }}
-{% endfor %}
+    {% for message in app.flashes("success") %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
 
 
   <form method="POST">

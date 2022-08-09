@@ -50,11 +50,14 @@
         </div>
         
         <div class="btn-container">
+          <a href="{{ path("app_security_editPassword", {id: app.user.id}) }}" class="btn btn-success">
+            <i class="fa-solid fa-key"></i>
+            <span>Modifier mon mot de passe</span>
+          </a>
           <a href="{{ path("app_security_editProfile", {id: app.user.id}) }}" class="btn btn-success">
             <i class="fa-solid fa-pen-fancy"></i>
             <span>Modifier mes informations</span>
           </a>
-          <a href="{{ path("app_security_editPassword", {id: app.user.id}) }}" class="btn btn-success">Modifier mon mot de passe</a>
         </div>
       </div>
   

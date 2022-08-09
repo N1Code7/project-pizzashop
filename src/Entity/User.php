@@ -37,6 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\EqualTo(propertyPath: "password", message: "Les deux mots de passe doivent être identiques")]
     public ?string $confirmPassword = null;
 
+    #[Assert\Length(min: 8, minMessage: "Votre mot de passe doit comporter 8 caractères minimum")]
     public ?string $previousPassword = null;
 
     #[ORM\Column(length: 255)]
