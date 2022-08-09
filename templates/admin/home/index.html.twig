@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PiizaShop - Administration{% endblock %}
+
+{% block header_homepage %}
+    <header class="header-homepage">
+        <div class="header-bg"></div>
+        <div class="blur"></div>
+{% endblock %}
+
+{% block header_body %}
+    <div class="header-content">
+        <h1>PizzaShop</h1>
+        <p>Administrez votre pizzeria</p>
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <h1>Administration</h1>
+
+    <div class="btn-container">
+        {# Manage pizzas #}
+        <a href="" class="btn btn-success">
+            <i class="fa-solid fa-pizza-slice"></i>
+            <span>Gérer les pizzas</span>
+        </a>
+        {# Manage users #}
+        <a href="" class="btn btn-success">
+            <i class="fa-solid fa-users"></i>
+            <span>Gérer les utilisateurs</span>
+        </a>
+        {# Manage orders #}
+        <a href="" class="btn btn-success">
+            <i class="fa-solid fa-arrow-up-wide-short"></i>
+            <span>Gérer les commandes</span>
+        </a>
+    
+    </div>
+
+{% endblock %}
