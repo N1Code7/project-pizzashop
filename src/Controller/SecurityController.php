@@ -5,12 +5,16 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Basket;
 use App\Entity\Address;
+use App\Form\EditProfileType;
+use App\Form\EditPasswordType;
 use App\Form\RegistrationType;
-use App\Repository\BasketRepository;
 use App\Repository\UserRepository;
+use App\Repository\BasketRepository;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -62,5 +66,73 @@ class SecurityController extends AbstractController
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+
+    #[IsGranted("ROLE_USER")]
+    #[Route("/mon-profil", name: "app_security_displayProfile")]
+    public function setProfile(): Response
+    {
+        return $this->render("security/displayProfile.html.twig");
+    }
+
+    #[IsGranted("ROLE_USER")]
+    #[Route("/mon-profil/edition", name: "app_security_editProfile")]
+    public function editProfile(Request $request, UserRepository $repository): Response
+    {
+        $user = $this->getUser();
+        // dd($user);
+        $form = $this->createForm(EditProfileType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+
+            $repository->add($user, true);
+
+            $this->addFlash("success", "Vos informations ont été mises à jour 😉 ");
+
+            return $this->redirectToRoute("app_security_displayProfile");
+        }
+
+        return $this->render("security/editProfile.html.twig", [
+            "form" => $form->createView()
+        ]);
+    }
+
+    #[IsGranted("ROLE_USER")]
+    #[Route("/mon-profil/edition-mot-de-passe", name: "app_security_editPassword")]
+    public function editPassword(UserRepository $repository, Request $request, UserPasswordHasherInterface $hasher,): Response
+    {
+        /** @var User */
+        $user = $this->getUser();
+        // dd($user);
+        $form = $this->createForm(EditPasswordType::class);
+
+        $form->handleRequest($request);
+
+        // dd($previousPassword, $validPassword);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $previousPassword = $form->getData()->previousPassword;
+            $newPassword = $form->getData()->getPassword();
+
+            $validPassword = $hasher->isPasswordValid($user, $previousPassword);
+
+            if ($validPassword) {
+                $hashedPassword = $hasher->hashPassword($user, $newPassword);
+
+                $repository->upgradePassword($user, $hashedPassword);
+
+                $this->addFlash("success", "Votre mot de passe a bien été modifié 😉 ");
+
+                return $this->redirectToRoute("app_security_editProfile");
+            } else {
+                $this->addFlash("error", "🚨 Votre ancien mot de passe ne correspond pas !");
+            }
+        }
+
+        return $this->render("security/editPassword.html.twig", [
+            "form" => $form->createView()
+        ]);
     }
 }

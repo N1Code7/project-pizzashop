@@ -37,6 +37,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\EqualTo(propertyPath: "password", message: "Les deux mots de passe doivent être identiques")]
     public ?string $confirmPassword = null;
 
+    #[Assert\Length(min: 8, minMessage: "Votre mot de passe doit comporter 8 caractères minimum")]
+    public ?string $previousPassword = null;
+
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
@@ -53,10 +56,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Timestampable(on: "update")]
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
-
-    // #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?Basket $basket;
 
     #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]

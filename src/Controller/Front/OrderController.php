@@ -3,6 +3,7 @@
 namespace App\Controller\Front;
 
 use App\DTO\Payment;
+use App\Entity\User;
 use App\Entity\Order;
 use App\Form\PaymentType;
 use App\Repository\OrderRepository;

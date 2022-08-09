@@ -34,7 +34,9 @@ form {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 5px;
+      margin-bottom: 7px;
+      font-size: 0.9rem;
+      color: rgb(140, 9, 9);
     }
 
     &-row {
@@ -54,13 +56,21 @@ form {
       textarea {
         min-height: 47px;
         min-width: 500px;
-        border: none;
+        border: 2px solid transparent;
         border-radius: 3px;
         background: $color1;
         color: $color3;
         text-align: center;
         font-size: 1.1rem;
         letter-spacing: 1px;
+        outline: none;
+      }
+
+      input:focus,
+      textarea:focus {
+        background: $color3;
+        color: $color1;
+        border: 2px solid $color1;
       }
 
       input::placeholder {
